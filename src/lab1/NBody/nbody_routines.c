@@ -8,16 +8,16 @@ void bodyForce(body *p, float dt, int n) {
 
 		for (int j = 0; j < n; j++) {
 			if (i!=j) {
-				float dx = p[j].x - p[i].x;
-				float dy = p[j].y - p[i].y;
-				float dz = p[j].z - p[i].z;
-				double softeningSquared = 1e-3;
+				float dx = p->x[j] - p->x[i];
+				float dy = p->y[j] - p->y[i];
+				float dz = p->z[j] - p->z[i];
+				float softeningSquared = 1e-3;
 				float distSqr = dx*dx + dy*dy + dz*dz + softeningSquared;
 				float invDist = 1.0f / sqrtf(distSqr);
 				float invDist3 = invDist * invDist * invDist;
 
-				double G = 6.674e-11;
-				float g_masses = G * p[j].m * p[i].m;
+				float G = 6.674e-11;
+				float g_masses = G * p->m[j] * p->m[i];
 
 				Fx += g_masses * dx * invDist3; 
 				Fy += g_masses * dy * invDist3; 
@@ -25,14 +25,14 @@ void bodyForce(body *p, float dt, int n) {
 			}
 		}
 
-		p[i].vx += dt*Fx/p[i].m; p[i].vy += dt*Fy/p[i].m; p[i].vz += dt*Fz/p[i].m;
+		p->vx[i] += dt*Fx/p->m[i]; p->vy[i] += dt*Fy/p->m[i]; p->vz[i] += dt*Fz/p->m[i];
 	}
 }
 
 void integrate(body *p, float dt, int n){
 	for (int i = 0 ; i < n; i++) {
-		p[i].x += p[i].vx*dt;
-		p[i].y += p[i].vy*dt;
-		p[i].z += p[i].vz*dt;
+		p->x[i] += p->vx[i]*dt;
+		p->y[i] += p->vy[i]*dt;
+		p->z[i] += p->vz[i]*dt;
 	}
 }

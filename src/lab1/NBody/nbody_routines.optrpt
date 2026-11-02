@@ -1,0 +1,292 @@
+Begin optimization report for: bodyForce
+
+LOOP BEGIN at nbody_routines.c (6, 2)
+    remark #25452: Poor spatial locality detected in memref(s). 
+    remark #15541: loop was not vectorized: outer loop is not an auto-vectorization candidate.
+
+    LOOP BEGIN at nbody_routines.c (9, 3)
+    <Predicate Optimized v1, split from line 10>
+        remark #25580: Induction variable range split using condition at line 10
+        remark #25563: Load hoisted out of the loop
+        remark #25563: Load hoisted out of the loop
+        remark #25563: Load hoisted out of the loop
+        remark #25563: Load hoisted out of the loop
+        remark #15300: LOOP WAS VECTORIZED
+        remark #15305: vectorization support: vector length 8
+        remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (11, 16) ] 
+        remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (12, 16) ] 
+        remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (13, 16) ] 
+        remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (20, 26) ] 
+        remark #15475: --- begin vector loop cost summary ---
+        remark #15476: scalar cost: 43.000000 
+        remark #15477: vector cost: 8.609375 
+        remark #15478: estimated potential speedup: 4.859375 
+        remark #15309: vectorization support: normalized vectorization overhead 2.078125
+        remark #15591: vectorized intrinsic functions: 1
+        remark #15488: --- end vector loop cost summary ---
+        remark #15447: --- begin vector loop memory reference summary ---
+        remark #15450: unmasked unaligned unit stride loads: 4 
+        remark #15474: --- end vector loop memory reference summary ---
+        remark #25587: Loop has reduction
+        remark #15590: vectorization support: add reduction with value type float [nbody_routines.c:22:8]
+        remark #15590: vectorization support: add reduction with value type float [nbody_routines.c:23:8]
+        remark #15590: vectorization support: add reduction with value type float [nbody_routines.c:24:8]
+    LOOP END
+
+    LOOP BEGIN at nbody_routines.c (9, 3)
+    <Predicate Optimized v1, split from line 10>
+    <Remainder loop for vectorization>
+        remark #15440: remainder loop was vectorized (masked)
+        remark #15305: vectorization support: vector length 8
+        remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (11, 16) ] 
+        remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (12, 16) ] 
+        remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (13, 16) ] 
+        remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (20, 26) ] 
+        remark #15475: --- begin vector loop cost summary ---
+        remark #15591: vectorized intrinsic functions: 1
+        remark #15488: --- end vector loop cost summary ---
+        remark #15447: --- begin vector loop memory reference summary ---
+        remark #15456: masked unaligned unit stride loads: 4 
+        remark #15474: --- end vector loop memory reference summary ---
+        remark #25261: Single iteration loop optimized away
+    LOOP END
+
+    LOOP BEGIN at nbody_routines.c (9, 3)
+    <Predicate Optimized v2, split from line 10>
+        remark #25563: Load hoisted out of the loop
+        remark #25563: Load hoisted out of the loop
+        remark #25563: Load hoisted out of the loop
+        remark #25563: Load hoisted out of the loop
+        remark #15300: LOOP WAS VECTORIZED
+        remark #15305: vectorization support: vector length 8
+        remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (11, 16) ] 
+        remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (12, 16) ] 
+        remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (13, 16) ] 
+        remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (20, 26) ] 
+        remark #15475: --- begin vector loop cost summary ---
+        remark #15476: scalar cost: 44.000000 
+        remark #15477: vector cost: 8.859375 
+        remark #15478: estimated potential speedup: 4.843750 
+        remark #15309: vectorization support: normalized vectorization overhead 2.031250
+        remark #15591: vectorized intrinsic functions: 1
+        remark #15488: --- end vector loop cost summary ---
+        remark #15447: --- begin vector loop memory reference summary ---
+        remark #15450: unmasked unaligned unit stride loads: 4 
+        remark #15474: --- end vector loop memory reference summary ---
+        remark #25587: Loop has reduction
+        remark #15590: vectorization support: add reduction with value type float [nbody_routines.c:22:8]
+        remark #15590: vectorization support: add reduction with value type float [nbody_routines.c:23:8]
+        remark #15590: vectorization support: add reduction with value type float [nbody_routines.c:24:8]
+    LOOP END
+
+    LOOP BEGIN at nbody_routines.c (9, 3)
+    <Predicate Optimized v2, split from line 10>
+    <Remainder loop for vectorization>
+        remark #15440: remainder loop was vectorized (masked)
+        remark #15305: vectorization support: vector length 8
+        remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (11, 16) ] 
+        remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (12, 16) ] 
+        remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (13, 16) ] 
+        remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (20, 26) ] 
+        remark #15475: --- begin vector loop cost summary ---
+        remark #15591: vectorized intrinsic functions: 1
+        remark #15488: --- end vector loop cost summary ---
+        remark #15447: --- begin vector loop memory reference summary ---
+        remark #15456: masked unaligned unit stride loads: 4 
+        remark #15474: --- end vector loop memory reference summary ---
+        remark #25261: Single iteration loop optimized away
+    LOOP END
+LOOP END
+=================================================================
+
+Begin optimization report for: integrate
+
+LOOP BEGIN at nbody_routines.c (33, 2)
+<Multiversioned v1>
+    remark #25228: Loop multiversioned for Data Dependence
+    remark #15300: LOOP WAS VECTORIZED
+    remark #15305: vectorization support: vector length 16
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (34, 14) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (34, 11) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride store: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (34, 3) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (35, 14) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (35, 11) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride store: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (35, 3) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (36, 14) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (36, 11) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride store: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (36, 3) ] 
+    remark #15475: --- begin vector loop cost summary ---
+    remark #15476: scalar cost: 17.000000 
+    remark #15477: vector cost: 3.453125 
+    remark #15478: estimated potential speedup: 4.578125 
+    remark #15309: vectorization support: normalized vectorization overhead 1.437500
+    remark #15488: --- end vector loop cost summary ---
+    remark #15447: --- begin vector loop memory reference summary ---
+    remark #15450: unmasked unaligned unit stride loads: 6 
+    remark #15451: unmasked unaligned unit stride stores: 3 
+    remark #15474: --- end vector loop memory reference summary ---
+LOOP END
+
+LOOP BEGIN at nbody_routines.c (33, 2)
+<Multiversioned v1>
+<Remainder loop for vectorization>
+    remark #15439: remainder loop was vectorized (unmasked)
+    remark #15305: vectorization support: vector length 4
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (34, 14) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (34, 11) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride store: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (34, 3) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (35, 14) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (35, 11) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride store: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (35, 3) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (36, 14) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (36, 11) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride store: [ /home/hlocal/CAP/CAP/src/lab1/NBody/nbody_routines.c (36, 3) ] 
+    remark #15475: --- begin vector loop cost summary ---
+    remark #15488: --- end vector loop cost summary ---
+    remark #15447: --- begin vector loop memory reference summary ---
+    remark #15450: unmasked unaligned unit stride loads: 6 
+    remark #15451: unmasked unaligned unit stride stores: 3 
+    remark #15474: --- end vector loop memory reference summary ---
+LOOP END
+
+LOOP BEGIN at nbody_routines.c (33, 2)
+<Multiversioned v1>
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at nbody_routines.c (33, 2)
+<Multiversioned v2>
+    remark #15615: Loop was not vectorized: not vectorizable due to data dependence, fall-back loop for multiversioning
+LOOP END
+=================================================================
+
+---- Begin Inlining Report ----
+Option Values:
+  inline-threshold: 225
+  inlinehint-threshold: 325
+  inlinecold-threshold: 45
+  inlineoptsize-threshold: 15
+
+DEAD STATIC FUNC: llvm.sqrt.f32
+
+DEAD STATIC FUNC: llvm.ssa.copy.f32
+
+DEAD STATIC FUNC: llvm.ssa.copy.i64
+
+COMPILE FUNC: bodyForce
+   -> DELETE: llvm.sqrt.f32 nbody_routines.c(16,28)
+   -> DELETE: llvm.sqrt.v8f32 nbody_routines.c(16,28)
+   -> llvm.sqrt.v8f32 nbody_routines.c(16,28)
+   -> DELETE: llvm.sqrt.v8f32 nbody_routines.c(16,28)
+   -> llvm.sqrt.v8f32 nbody_routines.c(16,28)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 nbody_routines.c(24,8)
+   -> llvm.vector.reduce.fadd.v8f32 nbody_routines.c(24,8)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 nbody_routines.c(23,8)
+   -> llvm.vector.reduce.fadd.v8f32 nbody_routines.c(23,8)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 nbody_routines.c(22,8)
+   -> llvm.vector.reduce.fadd.v8f32 nbody_routines.c(22,8)
+   -> DELETE: llvm.sqrt.v8f32 nbody_routines.c(16,28)
+   -> llvm.sqrt.v8f32 nbody_routines.c(16,28)
+   -> DELETE: llvm.sqrt.v8f32 nbody_routines.c(16,28)
+   -> llvm.sqrt.v8f32 nbody_routines.c(16,28)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 nbody_routines.c(24,8)
+   -> llvm.vector.reduce.fadd.v8f32 nbody_routines.c(24,8)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 nbody_routines.c(23,8)
+   -> llvm.vector.reduce.fadd.v8f32 nbody_routines.c(23,8)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 nbody_routines.c(22,8)
+   -> llvm.vector.reduce.fadd.v8f32 nbody_routines.c(22,8)
+   -> DELETE: llvm.ssa.copy.i64
+   -> DELETE: llvm.ssa.copy.f32
+   -> DELETE: llvm.ssa.copy.f32
+   -> DELETE: llvm.ssa.copy.f32
+   -> DELETE: llvm.ssa.copy.i64 nbody_routines.c(6,26)
+   -> DELETE: llvm.ssa.copy.f32
+   -> DELETE: llvm.ssa.copy.f32
+   -> DELETE: llvm.ssa.copy.f32
+   -> DELETE: llvm.ssa.copy.i64 nbody_routines.c(9,27)
+   -> DELETE: llvm.smin.i64 nbody_routines.c(9,21)
+   -> DELETE: llvm.smin.i64 nbody_routines.c(9,21)
+   -> DELETE: llvm.smin.i64 nbody_routines.c(9,21)
+   -> DELETE: llvm.smin.i64 nbody_routines.c(9,21)
+   -> DELETE: llvm.smin.i64 nbody_routines.c(9,21)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(9,21)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(9,21)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(11,16)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(11,16)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(11,16)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(11,16)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(9,21)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(9,21)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(11,16)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(11,16)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(11,16)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(11,16)
+   -> DELETE: llvm.smax.i64 nbody_routines.c(9,21)
+   -> llvm.smin.i64
+   -> llvm.masked.load.v8f32.p0 nbody_routines.c(11,16)
+   -> llvm.masked.load.v8f32.p0 nbody_routines.c(12,16)
+   -> llvm.masked.load.v8f32.p0 nbody_routines.c(13,16)
+   -> llvm.masked.load.v8f32.p0 nbody_routines.c(20,26)
+   -> llvm.smax.i64
+   -> llvm.masked.load.v8f32.p0 nbody_routines.c(11,16)
+   -> llvm.masked.load.v8f32.p0 nbody_routines.c(12,16)
+   -> llvm.masked.load.v8f32.p0 nbody_routines.c(13,16)
+   -> llvm.masked.load.v8f32.p0 nbody_routines.c(20,26)
+
+COMPILE FUNC: integrate
+   -> DELETE: llvm.ssa.copy.i64 nbody_routines.c(33,27)
+
+---- End Inlining Report ------
+Register allocation report for: bodyForce
+FUNCTION BEGIN
+ 8 spills 
+ LOOP1 BEGIN at (nbody_routines.c:6:2)
+  18 reloads 6 spills 
+  LOOP2 BEGIN at (nbody_routines.c:9:3)
+  LOOP2 END
+  LOOP2 BEGIN at (nbody_routines.c:9:3)
+  LOOP2 END
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 2 [ rip mxcsr  ]
+ Available : 4 [ k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 6 [ rbp rbx r12 r13 r14 r15  ]
+ Assigned : 32 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15  ]
+
+Routine stack 
+ Variables : 120 Bytes
+   Read Count : 18
+   Write Count : 14
+ Spills : 124 Bytes
+   Read Count : 18
+   Write Count : 14
+
+FUNCTION END
+Register allocation report for: integrate
+FUNCTION BEGIN
+ 12 reloads 22 spills 
+ LOOP1 BEGIN at (nbody_routines.c:33:2)
+ LOOP1 END
+ LOOP1 BEGIN at (nbody_routines.c:33:2)
+ LOOP1 END
+ LOOP1 BEGIN at (nbody_routines.c:33:2)
+ LOOP1 END
+ LOOP1 BEGIN at (nbody_routines.c:33:2)
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 1 [ mxcsr  ]
+ Available : 16 [ zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 5 [ rbp rbx r12 r13 r14  ]
+ Assigned : 20 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3  ]
+
+Routine stack 
+ Variables : 17 Bytes
+   Read Count : 17
+   Write Count : 22
+ Spills : 22 Bytes
+   Read Count : 12
+   Write Count : 22
+
+FUNCTION END

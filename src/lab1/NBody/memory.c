@@ -6,6 +6,13 @@
 body* get_memory(int nBodies)
 {
 	body *p = (body*)malloc(nBodies*sizeof(body));
+	p->m = (float*)malloc(nBodies*sizeof(float));
+	p->x = (float*)malloc(nBodies*sizeof(float));
+	p->y = (float*)malloc(nBodies*sizeof(float));
+	p->z = (float*)malloc(nBodies*sizeof(float));
+	p->vx = (float*)malloc(nBodies*sizeof(float));
+	p->vy = (float*)malloc(nBodies*sizeof(float));
+	p->vz = (float*)malloc(nBodies*sizeof(float));
 	return p;
 }
 
@@ -16,15 +23,15 @@ void free_memory(body *p)
 
 void randomizeBodies(body *data, int n) {
 	for (int i = 0; i < n; i++) {
-		data[i].m  = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
+		data->m[i]  = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
 
-		data[i].x  = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
-		data[i].y  = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
-		data[i].z  = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
+		data->x[i]  = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
+		data->y[i]  = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
+		data->z[i]  = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
 
-		data[i].vx = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
-		data[i].vy = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
-		data[i].vz = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
+		data->vx[i] = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
+		data->vy[i] = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
+		data->vz[i] = 2.0f * (rand() / (float)RAND_MAX) - 1.0f;
 	}
 }
 

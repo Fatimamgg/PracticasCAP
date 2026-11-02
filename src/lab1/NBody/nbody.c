@@ -14,7 +14,7 @@ double solutionPos(body *p, int n)
 	double pos_global  = 0.0f;
 
 	for (int i = 0 ; i < n; i++) {
-		pos_private = sqrtf(p[i].x*p[i].x+p[i].y*p[i].y+p[i].z*p[i].z);
+		pos_private = sqrtf(p->x[i]*p->x[i]+p->y[i]*p->y[i]+p->z[i]*p->z[i]);
 		pos_global+=pos_private;
 	}
 	return(pos_global);
