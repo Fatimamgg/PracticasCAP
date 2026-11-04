@@ -1,5 +1,8 @@
+#include <tmmintrin.h>
+#include <emmintrin.h>
 #include "stencil.h"
 
+/*
 void ApplyStencil(unsigned char *img_in, unsigned char *img_out, int width, int height) {
   
 	short val;
@@ -21,10 +24,63 @@ void ApplyStencil(unsigned char *img_in, unsigned char *img_out, int width, int 
 			img_out[i*width + j] = (unsigned char)(val_out);
 		}
 }
+*/
+void ApplyStencil(unsigned char *img_in, unsigned char *img_out, int width, int height) {
+	const __m128i zero = _mm_setzero_si128();
+	const __m128i max255 = _mm_set1_epi16(255);
+	const __m128i seven = _mm_set1_epi16(7);
+
+	for (int i = 1; i < height-1; i++)
+		int j = 1;
+		for (; j < width-18 ; j += 16) {
+			_m128i p00 = _mm_cvtepu8_epi16(_mm_loadu_si128((__m128i*)&img_in[(i-1)*width + j-1]));
+			_m128i p01 = _mm_cvtepu8_epi16(_mm_loadu_si128((__m128i*)&img_in[(i-1)*width + j]));
+			_m128i p02 = _mm_cvtepu8_epi16(_mm_loadu_si128((__m128i*)&img_in[(i-1)*width + j+1]));
+			_m128i p10 = _mm_cvtepu8_epi16(_mm_loadu_si128((__m128i*)&img_in[(i  )*width + j-1]));
+			_m128i p11 = _mm_cvtepu8_epi16(_mm_loadu_si128((__m128i*)&img_in[(i  )*width + j]));
+			_m128i p12 = _mm_cvtepu8_epi16(_mm_loadu_si128((__m128i*)&img_in[(i  )*width + j+1]));
+			_m128i p20 = _mm_cvtepu8_epi16(_mm_loadu_si128((__m128i*)&img_in[(i+1)*width + j-1]));
+			_m128i p21 = _mm_cvtepu8_epi16(_mm_loadu_si128((__m128i*)&img_in[(i+1)*width + j]));
+			_m128i p22 = _mm_cvtepu8_epi16(_mm_loadu_si128((__m128i*)&img_in[(i+1)*width + j+1]));
+			_m128i val = _mm_setzero_si128();
+			val = _mm_sub_epi16(val, p00);
+			val = _mm_sub_epi16(val, p01);
+			val = _mm_sub_epi16(val, p02);
+			val = _mm_sub_epi16(val, p10);
+			val = _mm_sub_epi16(val, p11);
+			val = _mm_sub_epi16(val, p12);
+			val = _mm_sub_epi16(val, p20);
+			val = _mm_sub_epi16(val, p21);
+			val = _mm_sub_epi16(val, p22);
+			val = _mm_add_epi16(val, _mm_mullo_epi16(p11, seven));
+			val = _mm_max_epi16(val, zero);
+			val = _mm_min_epi16(val, max255);
+			_m128i val_out = _mm_packus_epi16(val, val);
+			_mm_storeu_si128((__m128i*)&img_out[i*width + j], val_out);
+			
+			for (; j < width-1 ; j++) {
+				short val = 0;
+			val +=	-img_in[(i-1)*width + j-1] -   img_in[(i-1)*width + j] - img_in[(i-1)*width + j+1] 
+					-img_in[(i  )*width + j-1] + 7*img_in[(i  )*width + j] - img_in[(i  )*width + j+1] 
+					-img_in[(i+1)*width + j-1] -   img_in[(i+1)*width + j] - img_in[(i+1)*width + j+1];
+			if (val<0){
+				val=0;
+			}
+			if (val>255){
+				val_out=255;
+			}
+
+			img_out[i*width + j] = (unsigned char)(val);
+		}
+}
+
 
 void CopyImage(unsigned char *img_in, unsigned char *img_out, int width, int height) {
 
-	for (int i = 0; i < height; i++)
-		for (int j = 0; j < width; j++)
+	for (int i = 0; i < height; i++) {
+		#pragma ivdep
+		for (int j = 0; j < width; j++){
 			img_in[i*width + j] = img_out[i*width + j];
+	}
+}
 }
