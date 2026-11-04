@@ -11,6 +11,7 @@ static void add_source(unsigned int n, float * x, const float * s, float dt)
 {
     unsigned int size = (n + 2) * (n + 2);
 
+    #pragma omp parallel for
     for (unsigned int i = 0; i < size; i++) {
         x[i] += dt * s[i];
     }
@@ -18,7 +19,7 @@ static void add_source(unsigned int n, float * x, const float * s, float dt)
 
 static void set_bnd(unsigned int n, boundary b, float * x)
 {
-
+    #pragma omp parallel for
     for (unsigned int i = 1; i <= n; i++) {
         x[IX(0, i)]     = b == VERTICAL ? -x[IX(1, i)] : x[IX(1, i)];
         x[IX(n + 1, i)] = b == VERTICAL ? -x[IX(n, i)] : x[IX(n, i)];
@@ -31,6 +32,7 @@ static void set_bnd(unsigned int n, boundary b, float * x)
     x[IX(n + 1, n + 1)] = 0.5f * (x[IX(n, n + 1)] + x[IX(n + 1, n)]);
 }
 
+/*/ Original
 static void lin_solve(unsigned int n, boundary b, float * x, const float * x0, float a, float c)
 {
 
@@ -47,6 +49,56 @@ static void lin_solve(unsigned int n, boundary b, float * x, const float * x0, f
         set_bnd(n, b, x);
     }
 }
+con Jacobi
+static void lin_solve(unsigned int n, boundary b, float * x, const float * x0, float a, float c)
+{
+
+    float *x_new = malloc((n+2) * (n+2) * sizeof(float));
+
+    for (unsigned int k = 0; k < 20; k++) {
+        #pragma omp parallel for
+	for (unsigned int i = 1; i <= n; i++) {
+            for (unsigned int j = 1; j <= n; j++) {
+                x_new[IX(i, j)] = (x0[IX(i, j)] + a * (x[IX(i - 1, j)] +
+                                                   x[IX(i + 1, j)] +
+                                                   x[IX(i, j - 1)] +
+                                                   x[IX(i, j + 1)])) / c;
+            }
+        }
+        set_bnd(n, b, x_new);
+        float *temp = x;
+        x = x_new;
+        x_new = temp;
+    }
+    free(x_new);
+}
+*/
+// Con Red-Black
+static void lin_solve(unsigned int n, boundary b, float * x, const float * x0, float a, float c)
+{
+
+
+    for (unsigned int k = 0; k < 20; k++) {
+        for (int color = 0; color < 2; color++) {
+            #pragma omp parallel for
+            for (unsigned int i = 1; i <= n; i++) {
+                unsigned int j_start = 1 + ((i + 1 + color) & 1);
+                for (unsigned int j = j_start; j <= n; j += 2) {
+                    if ((i + j) % 2 == color) {
+                        x[IX(i, j)] = (x0[IX(i, j)] + a * (x[IX(i - 1, j)] +
+                                                           x[IX(i + 1, j)] +
+                                                           x[IX(i, j - 1)] +
+                                                           x[IX(i, j + 1)])) / c;
+                    }
+                }
+            }
+            set_bnd(n, b, x);
+        }
+    }
+    
+}
+
+
 
 static void diffuse(unsigned int n, boundary b, float * x, const float * x0, float diff, float dt)
 {
@@ -61,7 +113,7 @@ static void advect(unsigned int n, boundary b, float * d, const float * d0, cons
 
     float dt0 = dt * n;
 
-
+    #pragma omp parallel for private(i0, i1, j0, j1, x, y, s0, t0, s1, t1)
     for (unsigned int j = 1; j <= n; j++) {
 
     for (unsigned int i = 1; i <= n; i++) {
@@ -94,7 +146,7 @@ static void advect(unsigned int n, boundary b, float * d, const float * d0, cons
 
 static void project(unsigned int n, float *u, float *v, float *p, float *div)
 {
-
+        #pragma omp parallel for
         for (unsigned int j = 1; j <= n; j++) {
     for (unsigned int i = 1; i <= n; i++) {
             div[IX(i, j)] = -0.5f * (u[IX(i + 1, j)] - u[IX(i - 1, j)] +
@@ -107,7 +159,7 @@ static void project(unsigned int n, float *u, float *v, float *p, float *div)
 
     lin_solve(n, NONE, p, div, 1, 4);
 
-
+        #pragma omp parallel for
         for (unsigned int j = 1; j <= n; j++) {
     for (unsigned int i = 1; i <= n; i++) {
             u[IX(i, j)] -= 0.5f * n * (p[IX(i + 1, j)] - p[IX(i - 1, j)]);

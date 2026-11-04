@@ -41,7 +41,7 @@ void main(int argc, char**argv)
 
 	double start = omp_get_wtime();
 
-	//#pragma omp parallel for private(i,not_flag, j) shared(n,k)
+	#pragma omp parallel for private(i,not_flag, j) shared(n,k)
 	for (i=2; i<n; i++)
 	{
 		not_flag = 0;
@@ -53,7 +53,7 @@ void main(int argc, char**argv)
 			j++;
 		}
 		if (j*j>=i && !not_flag)
-		//#pragma omp critical	
+		#pragma omp critical	
 		primes[k++] = i;
 	}
 
