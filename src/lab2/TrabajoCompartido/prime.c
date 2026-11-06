@@ -40,7 +40,12 @@ void main(int argc, char**argv)
 	primes = (int *)malloc(sizeof(int)*(n/2+1));
 
 	double start = omp_get_wtime();
+	//#pragma omp parallel for schedule(static)
+	//#pragma omp parallel for schedule(dynamic)
+	//#pragma omp parallel for schedule(guided)
+	//#pragma omp parallel for schedule(guided, 10000)
 
+	//#pragma omp parallel for schedule(static)
 	#pragma omp parallel for private(i,not_flag, j) shared(n,k)
 	for (i=2; i<n; i++)
 	{
