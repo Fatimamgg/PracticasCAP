@@ -1,0 +1,563 @@
+Begin optimization report for: dens_step
+
+OMP PARALLEL FOR BEGIN at solver.c (14, 5)
+    remark #30017: Construct outlined to add_source.extracted
+OMP PARALLEL FOR END
+
+OMP PARALLEL BEGIN at solver.c (170, 5)
+    remark #30017: Construct outlined to lin_solve.extracted
+OMP PARALLEL END
+
+OMP PARALLEL FOR BEGIN at solver.c (224, 5)
+    remark #30017: Construct outlined to advect.extracted
+OMP PARALLEL FOR END
+
+LOOP BEGIN at solver.c (23, 5)
+    remark #15521: Loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+LOOP END
+=================================================================
+
+Begin optimization report for: add_source
+
+OMP PARALLEL FOR BEGIN at solver.c (14, 5)
+    remark #30017: Construct outlined to add_source.extracted
+OMP PARALLEL FOR END
+=================================================================
+
+Begin optimization report for: add_source.extracted
+
+OMP PARALLEL FOR BEGIN at solver.c (14, 5)
+
+    LOOP BEGIN at solver.c (14, 5)
+        remark #30000: OpenMP: Outlined parallel loop
+        remark #15300: LOOP WAS VECTORIZED
+        remark #15305: vectorization support: vector length 4
+    LOOP END
+
+    LOOP BEGIN at solver.c (14, 5)
+    <Remainder loop for vectorization>
+    LOOP END
+OMP PARALLEL FOR END
+=================================================================
+
+Begin optimization report for: diffuse
+=================================================================
+
+Begin optimization report for: advect
+
+OMP PARALLEL FOR BEGIN at solver.c (224, 5)
+    remark #30017: Construct outlined to advect.extracted
+OMP PARALLEL FOR END
+=================================================================
+
+Begin optimization report for: advect.extracted
+
+FUNCTION REPORT BEGIN
+    remark #15619: SLP vectorization performed on 3 operation groups in function
+FUNCTION REPORT END
+
+OMP PARALLEL FOR BEGIN at solver.c (224, 5)
+
+    LOOP BEGIN at solver.c (224, 5)
+        remark #30000: OpenMP: Outlined parallel loop
+
+        LOOP BEGIN at solver.c (227, 5)
+            remark #15521: Loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+            remark #15620: SLP vectorization performed on 3 operation groups in loop
+        LOOP END
+    LOOP END
+OMP PARALLEL FOR END
+=================================================================
+
+Begin optimization report for: lin_solve
+
+OMP PARALLEL BEGIN at solver.c (170, 5)
+    remark #30017: Construct outlined to lin_solve.extracted
+OMP PARALLEL END
+=================================================================
+
+Begin optimization report for: lin_solve.extracted
+
+OMP PARALLEL BEGIN at solver.c (170, 5)
+
+    LOOP BEGIN at solver.c (171, 5)
+
+        OMP FOR BEGIN at solver.c (174, 9)
+
+            LOOP BEGIN at solver.c (174, 9)
+                remark #30002: OpenMP: Worksharing loop
+                remark #15541: loop was not vectorized: outer loop is not an auto-vectorization candidate.
+
+                OMP SIMD BEGIN at solver.c (176, 13)
+
+                    LOOP BEGIN at solver.c (176, 13)
+                        remark #15301: SIMD LOOP WAS VECTORIZED
+                        remark #15305: vectorization support: vector length 8
+                    LOOP END
+
+                    LOOP BEGIN at solver.c (176, 13)
+                    <Remainder loop for vectorization>
+                    LOOP END
+                OMP SIMD END
+            LOOP END
+        OMP FOR END
+
+        OMP FOR BEGIN at solver.c (191, 9)
+
+            LOOP BEGIN at solver.c (191, 9)
+                remark #30002: OpenMP: Worksharing loop
+                remark #15541: loop was not vectorized: outer loop is not an auto-vectorization candidate.
+
+                OMP SIMD BEGIN at solver.c (193, 13)
+
+                    LOOP BEGIN at solver.c (193, 13)
+                        remark #15301: SIMD LOOP WAS VECTORIZED
+                        remark #15305: vectorization support: vector length 8
+                    LOOP END
+
+                    LOOP BEGIN at solver.c (193, 13)
+                    <Remainder loop for vectorization>
+                    LOOP END
+                OMP SIMD END
+            LOOP END
+        OMP FOR END
+
+        OMP SINGLE BEGIN at solver.c (207, 9)
+        OMP SINGLE END
+    LOOP END
+OMP PARALLEL END
+=================================================================
+
+Begin optimization report for: set_bnd
+
+LOOP BEGIN at solver.c (23, 5)
+LOOP END
+=================================================================
+
+Begin optimization report for: vel_step
+
+OMP PARALLEL FOR BEGIN at solver.c (14, 5)
+    remark #30017: Construct outlined to add_source.extracted
+OMP PARALLEL FOR END
+
+OMP PARALLEL FOR BEGIN at solver.c (14, 5)
+    remark #30017: Construct outlined to add_source.extracted
+OMP PARALLEL FOR END
+
+OMP PARALLEL BEGIN at solver.c (170, 5)
+    remark #30017: Construct outlined to lin_solve.extracted
+OMP PARALLEL END
+
+OMP PARALLEL BEGIN at solver.c (170, 5)
+    remark #30017: Construct outlined to lin_solve.extracted
+OMP PARALLEL END
+
+OMP PARALLEL FOR BEGIN at solver.c (224, 5)
+    remark #30017: Construct outlined to advect.extracted
+OMP PARALLEL FOR END
+
+LOOP BEGIN at solver.c (23, 5)
+    remark #15521: Loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+LOOP END
+
+OMP PARALLEL FOR BEGIN at solver.c (224, 5)
+    remark #30017: Construct outlined to advect.extracted
+OMP PARALLEL FOR END
+
+LOOP BEGIN at solver.c (23, 5)
+    remark #15344: Loop was not vectorized: vector dependence prevents vectorization
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 58) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 58) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 58) ] 
+    remark #15346: vector dependence: assumed ANTI dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 58) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed ANTI dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 46) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed ANTI dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 46) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 58) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 58) ] 
+LOOP END
+=================================================================
+
+Begin optimization report for: project
+
+OMP PARALLEL FOR BEGIN at solver.c (257, 5)
+    remark #30017: Construct outlined to project.extracted
+OMP PARALLEL FOR END
+
+LOOP BEGIN at solver.c (23, 5)
+    remark #15521: Loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+LOOP END
+
+LOOP BEGIN at solver.c (23, 5)
+    remark #15344: Loop was not vectorized: vector dependence prevents vectorization
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 58) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 58) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 58) ] 
+    remark #15346: vector dependence: assumed ANTI dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 58) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 58) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 58) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] 
+    remark #15346: vector dependence: assumed ANTI dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 60) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+LOOP END
+
+OMP PARALLEL BEGIN at solver.c (170, 5)
+    remark #30017: Construct outlined to lin_solve.extracted
+OMP PARALLEL END
+
+OMP PARALLEL FOR BEGIN at solver.c (271, 5)
+    remark #30017: Construct outlined to project.extracted.27
+OMP PARALLEL FOR END
+
+LOOP BEGIN at solver.c (23, 5)
+    remark #15344: Loop was not vectorized: vector dependence prevents vectorization
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 44) ] 
+    remark #15346: vector dependence: assumed ANTI dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 44) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 44) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 44) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 44) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 44) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 60) ] 
+LOOP END
+
+LOOP BEGIN at solver.c (23, 5)
+    remark #15344: Loop was not vectorized: vector dependence prevents vectorization
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 58) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 58) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 58) ] 
+    remark #15346: vector dependence: assumed ANTI dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 58) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed ANTI dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 46) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed ANTI dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 46) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 58) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (24, 9) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (26, 9) ] and [ /home/hlocal/PracticasCAP/src/lab2/RealFluidDynamicsGames/solver.c (25, 58) ] 
+LOOP END
+=================================================================
+
+Begin optimization report for: project.extracted
+
+OMP PARALLEL FOR BEGIN at solver.c (257, 5)
+
+    LOOP BEGIN at solver.c (257, 5)
+        remark #30000: OpenMP: Outlined parallel loop
+
+        LOOP BEGIN at solver.c (260, 9)
+            remark #15521: Loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+        LOOP END
+    LOOP END
+OMP PARALLEL FOR END
+=================================================================
+
+Begin optimization report for: project.extracted.27
+
+OMP PARALLEL FOR BEGIN at solver.c (271, 5)
+
+    LOOP BEGIN at solver.c (271, 5)
+        remark #30000: OpenMP: Outlined parallel loop
+
+        LOOP BEGIN at solver.c (274, 9)
+            remark #15521: Loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+        LOOP END
+    LOOP END
+OMP PARALLEL FOR END
+=================================================================
+
+---- Begin Inlining Report ----
+Option Values:
+  inline-threshold: 225
+  inlinehint-threshold: 325
+  inlinecold-threshold: 45
+  inlineoptsize-threshold: 15
+
+DEAD STATIC FUNC: add_source
+
+DEAD STATIC FUNC: advect
+
+DEAD STATIC FUNC: diffuse
+
+DEAD STATIC FUNC: lin_solve
+
+COMPILE FUNC: set_bnd
+
+COMPILE FUNC: dens_step
+   -> INLINE: add_source solver.c(285,5)
+      -> BROKER: __kmpc_fork_call solver.c(14,5)(add_source.extracted)
+   -> INLINE: diffuse solver.c(287,5)
+      -> INLINE: lin_solve solver.c(214,5)
+         -> BROKER: __kmpc_fork_call solver.c(170,5)(lin_solve.extracted)
+   -> INLINE: advect solver.c(289,5)
+      -> INLINE: set_bnd solver.c(252,5)
+      -> BROKER: __kmpc_fork_call solver.c(224,5)(advect.extracted)
+
+COMPILE FUNC: project
+   -> INLINE: set_bnd solver.c(266,5)
+   -> INLINE: set_bnd solver.c(267,5)
+   -> INLINE: lin_solve solver.c(269,5)
+      -> BROKER: __kmpc_fork_call solver.c(170,5)(lin_solve.extracted)
+   -> INLINE: set_bnd solver.c(279,5)
+   -> INLINE: set_bnd solver.c(280,5)
+   -> BROKER: __kmpc_fork_call solver.c(257,5)(project.extracted)
+   -> BROKER: __kmpc_fork_call solver.c(271,5)(project.extracted.27)
+
+COMPILE FUNC: vel_step
+   -> INLINE: add_source solver.c(294,5)
+      -> BROKER: __kmpc_fork_call solver.c(14,5)(add_source.extracted)
+   -> INLINE: add_source solver.c(295,5)
+      -> BROKER: __kmpc_fork_call solver.c(14,5)(add_source.extracted)
+   -> INLINE: diffuse solver.c(297,5)
+      -> INLINE: lin_solve solver.c(214,5)
+         -> BROKER: __kmpc_fork_call solver.c(170,5)(lin_solve.extracted)
+   -> INLINE: diffuse solver.c(299,5)
+      -> INLINE: lin_solve solver.c(214,5)
+         -> BROKER: __kmpc_fork_call solver.c(170,5)(lin_solve.extracted)
+   -> project solver.c(300,5)
+   -> INLINE: advect solver.c(303,5)
+      -> INLINE: set_bnd solver.c(252,5)
+      -> BROKER: __kmpc_fork_call solver.c(224,5)(advect.extracted)
+   -> INLINE: advect solver.c(304,5)
+      -> INLINE: set_bnd solver.c(252,5)
+      -> BROKER: __kmpc_fork_call solver.c(224,5)(advect.extracted)
+   -> project solver.c(305,5)
+
+COMPILE FUNC: add_source.extracted
+
+COMPILE FUNC: lin_solve.extracted
+   -> set_bnd solver.c(208,9)
+
+COMPILE FUNC: advect.extracted
+
+COMPILE FUNC: project.extracted.27
+
+COMPILE FUNC: project.extracted
+
+---- End Inlining Report ------
+Register allocation report for: dens_step
+FUNCTION BEGIN
+ 6 reloads 5 spills 
+ LOOP1 BEGIN at (solver.c:23:5 @[ solver.c:252:5 @[ solver.c:289:5 ] ])
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp mxcsr rip  ]
+ Available : 17 [ zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 6 [ rbp rbx r12 r13 r14 r15  ]
+ Assigned : 19 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2  ]
+
+Routine stack 
+ Variables : 24 Bytes
+   Read Count : 6
+   Write Count : 7
+ Spills : 28 Bytes
+   Read Count : 6
+   Write Count : 5
+
+FUNCTION END
+Register allocation report for: set_bnd
+FUNCTION BEGIN
+ 1 reloads 1 spills 
+ LOOP1 BEGIN at (solver.c:23:5)
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 2 [ rip mxcsr  ]
+ Available : 18 [ zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 5 [ rbx r12 r13 r14 r15  ]
+ Assigned : 18 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1  ]
+
+Routine stack 
+ Variables : 4 Bytes
+   Read Count : 1
+   Write Count : 1
+ Spills : 4 Bytes
+   Read Count : 1
+   Write Count : 1
+
+FUNCTION END
+Register allocation report for: vel_step
+FUNCTION BEGIN
+ 22 reloads 12 spills 
+ LOOP1 BEGIN at (solver.c:23:5 @[ solver.c:252:5 @[ solver.c:304:5 ] ])
+  1 reloads 
+ LOOP1 END
+ LOOP1 BEGIN at (solver.c:23:5 @[ solver.c:252:5 @[ solver.c:303:5 ] ])
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp mxcsr rip  ]
+ Available : 17 [ zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 6 [ rbp rbx r12 r13 r14 r15  ]
+ Assigned : 19 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2  ]
+
+Routine stack 
+ Variables : 56 Bytes
+   Read Count : 23
+   Write Count : 13
+ Spills : 84 Bytes
+   Read Count : 23
+   Write Count : 12
+
+FUNCTION END
+Register allocation report for: project
+FUNCTION BEGIN
+ 27 reloads 8 spills 
+ LOOP1 BEGIN at (solver.c:23:5 @[ solver.c:280:5 ])
+ LOOP1 END
+ LOOP1 BEGIN at (solver.c:23:5 @[ solver.c:279:5 ])
+ LOOP1 END
+ LOOP1 BEGIN at (solver.c:23:5 @[ solver.c:267:5 ])
+  1 reloads 
+ LOOP1 END
+ LOOP1 BEGIN at (solver.c:23:5 @[ solver.c:266:5 ])
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp mxcsr rip  ]
+ Available : 18 [ zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 6 [ rbp rbx r12 r13 r14 r15  ]
+ Assigned : 18 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1  ]
+
+Routine stack 
+ Variables : 64 Bytes
+   Read Count : 28
+   Write Count : 8
+ Spills : 64 Bytes
+   Read Count : 28
+   Write Count : 8
+
+FUNCTION END
+Register allocation report for: add_source.extracted
+FUNCTION BEGIN
+ LOOP1 BEGIN at (solver.c:14:5)
+ LOOP1 END
+ LOOP1 BEGIN at (solver.c:14:5)
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 3 [ rsp ssp mxcsr  ]
+ Available : 20 [ rbp r10 r11 r13 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 3 [ r12 r14 r15  ]
+ Assigned : 16 [ eflags rax rbx rcx rdi rdx rsi r8 r9 r12 r14 r15 zmm0 zmm1 zmm2 zmm3  ]
+
+Routine stack 
+ Variables : 24 Bytes
+   Read Count : 3
+   Write Count : 4
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: advect.extracted
+FUNCTION BEGIN
+ 2 reloads 3 spills 
+ LOOP1 BEGIN at (solver.c:224:5)
+  1 reloads 
+  LOOP2 BEGIN at (solver.c:227:5)
+  LOOP2 END
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp mxcsr rip  ]
+ Available : 8 [ zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 6 [ rbp rbx r12 r13 r14 r15  ]
+ Assigned : 28 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11  ]
+
+Routine stack 
+ Variables : 60 Bytes
+   Read Count : 8
+   Write Count : 7
+ Spills : 12 Bytes
+   Read Count : 3
+   Write Count : 3
+
+FUNCTION END
+Register allocation report for: lin_solve.extracted
+FUNCTION BEGIN
+ 24 spills 
+ LOOP1 BEGIN at (solver.c:171:5)
+  25 reloads 19 spills 
+  LOOP2 BEGIN at (solver.c:174:9)
+   17 reloads 9 spills 
+   LOOP3 BEGIN at (solver.c:176:13)
+    23 reloads 7 spills 
+   LOOP3 END
+   LOOP3 BEGIN at (solver.c:176:13)
+   LOOP3 END
+  LOOP2 END
+  LOOP2 BEGIN at (solver.c:191:9)
+   27 reloads 9 spills 
+   LOOP3 BEGIN at (solver.c:193:13)
+    26 reloads 11 spills 
+   LOOP3 END
+   LOOP3 BEGIN at (solver.c:193:13)
+   LOOP3 END
+  LOOP2 END
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rip mxcsr rsp ssp  ]
+ Available : 4 [ k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 6 [ rbp rbx r12 r13 r14 r15  ]
+ Assigned : 32 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15  ]
+
+Routine stack 
+ Variables : 640 Bytes
+   Read Count : 130
+   Write Count : 87
+ Spills : 852 Bytes
+   Read Count : 118
+   Write Count : 79
+
+FUNCTION END
+Register allocation report for: project.extracted
+FUNCTION BEGIN
+ 1 reloads 1 spills 
+ LOOP1 BEGIN at (solver.c:257:5)
+  LOOP2 BEGIN at (solver.c:260:9)
+  LOOP2 END
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp mxcsr rip  ]
+ Available : 16 [ zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 6 [ rbp rbx r12 r13 r14 r15  ]
+ Assigned : 20 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3  ]
+
+Routine stack 
+ Variables : 44 Bytes
+   Read Count : 5
+   Write Count : 5
+ Spills : 4 Bytes
+   Read Count : 1
+   Write Count : 1
+
+FUNCTION END
+Register allocation report for: project.extracted.27
+FUNCTION BEGIN
+ 1 reloads 1 spills 
+ LOOP1 BEGIN at (solver.c:271:5)
+  LOOP2 BEGIN at (solver.c:274:9)
+  LOOP2 END
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp mxcsr rip  ]
+ Available : 18 [ zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 6 [ rbp rbx r12 r13 r14 r15  ]
+ Assigned : 18 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1  ]
+
+Routine stack 
+ Variables : 36 Bytes
+   Read Count : 4
+   Write Count : 5
+ Spills : 4 Bytes
+   Read Count : 1
+   Write Count : 1
+
+FUNCTION END
