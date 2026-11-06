@@ -26,7 +26,7 @@ static void init(unsigned int source_x, unsigned int source_y, float * matrix) {
     // init
     #pragma omp parallel for
     for (unsigned int y = 0; y < N; ++y)
-        #pragma omp simd
+        #pragma omp parallel for
         for (unsigned int x = 0; x < N; ++x)
             matrix[y*N+x]=ENVIROM_TEMP;
 
@@ -57,6 +57,7 @@ static void step(unsigned int source_x, unsigned int source_y, const float *rest
 
     #pragma omp parallel for
     for (unsigned int y = 1; y < N-1; ++y) {
+        #pragma omp parallel for
         for (unsigned int x = 1; x < N-1; ++x) {
             next[y*N+x] = current[y*N+x] + a * dt *
 				((current[y*N+x+1]   - 2.0f*current[y*N+x] + current[y*N+x-1])/dx2 +
@@ -70,8 +71,9 @@ static void step(unsigned int source_x, unsigned int source_y, const float *rest
 static float diff(const float *restrict current, const float *restrict next) {
     float maxdiff = 0.0f;
 
-    #pragma omp parallel for reduction(max:maxdiff)
+    #pragma omp parallel for
     for (unsigned int y = 1; y < N-1; ++y) {
+        #pragma omp parallel for
         for (unsigned int x = 1; x < N-1; ++x) {
             maxdiff = fmaxf(maxdiff, fabsf(next[y*N+x] - current[y*N+x]));
         }
@@ -85,7 +87,6 @@ void write_png(float * current, int iter) {
     uint8_t * image = malloc(3 * N * N * sizeof(uint8_t));
     float maxval = fmaxf(SOURCE_TEMP, BOUNDARY_TEMP);
 
-    #pragma omp parallel for
     for (unsigned int y = 0; y < N; ++y) {
         for (unsigned int x = 0; x < N; ++x) {
             unsigned int i = y*N+x;

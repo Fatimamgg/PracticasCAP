@@ -1,5 +1,5 @@
 CC=icx
-CFLAGS=-Wall -Wextra -std=c99 -O2 -xhost -qopt-report -qopenmp
+CFLAGS=-Wall -Wextra -std=c99 -O3 -xhost -qopt-report -qopenmp
 
 LDFLAGS=-lm
 

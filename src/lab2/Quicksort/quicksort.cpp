@@ -8,6 +8,7 @@ using namespace std;
 void init(int arr[], int n){
 //	srand((unsigned)time(0));
 	srand(0);
+
 	for(int i=0;i<n;i++)
 		arr[i]=rand()%1234 + 1;
 }
@@ -48,10 +49,10 @@ void quickSort(int arr[], int low, int high){
 	if(low < high){
 		int pivot = arr[high];
 		int pos = partition(arr, low, high, pivot);
-		
-		#pragma omp task shared(arr) firstprivate(low, pos)
+
+		#pragma omp task
 		quickSort(arr, low, pos-1);
-		#pragma omp task shared(arr) firstprivate(pos, high)
+		#pragma omp task
 		quickSort(arr, pos+1, high);
 	}
 }
@@ -70,7 +71,7 @@ int main(int argc, char *argv[]){
 	int n;
 	int *arr;
 	double t1,t2;
-	int debug=1;
+	int debug=0;
 	if(argc < 2){
 		n=6000000;
 	}else{
@@ -82,15 +83,12 @@ int main(int argc, char *argv[]){
 	t1=omp_get_wtime();
 	#pragma omp parallel
 	{
-		#pragma omp single nowait
-		{
-			quickSort(arr, 0 , n-1);
-		}
+		#pragma omp single
+		quickSort(arr, 0 , n-1);
 	}
-	quickSort(arr, 0 , n-1);
 	t2=omp_get_wtime()-t1;
 
-	cout << "quicksort took " << t2 << " sec. to complete" << endl;
+
 	if (!checkFn(arr, n)) {
 		cout << "validation failed!" << endl;
 	}
@@ -102,6 +100,7 @@ int main(int argc, char *argv[]){
 		}
 		cout << endl;
 	}
+	cout << "quicksort took " << t2 << " sec. to complete" << endl;
 
 	delete [] arr;
 	

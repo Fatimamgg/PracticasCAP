@@ -1,0 +1,518 @@
+Begin optimization report for: init(int*, int)
+
+LOOP BEGIN at quicksort.cpp (12, 2)
+    remark #15527: Loop was not vectorized: function call to  cannot be vectorized
+    remark #25439: Loop unrolled with remainder by 8
+LOOP END
+
+LOOP BEGIN at quicksort.cpp (12, 2)
+<Remainder loop>
+LOOP END
+=================================================================
+
+Begin optimization report for: swap(int*, int, int)
+=================================================================
+
+Begin optimization report for: partition(int*, int, int, int)
+
+LOOP BEGIN at quicksort.cpp (26, 2)
+    remark #15344: Loop was not vectorized: vector dependence prevents vectorization
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 12) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 14) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (20, 12) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (27, 6) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (20, 12) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 14) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (20, 12) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 12) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (29, 5) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 14) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (29, 5) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (20, 12) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (29, 5) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (29, 5) ] 
+    remark #25439: Loop unrolled with remainder by 4
+LOOP END
+
+LOOP BEGIN at quicksort.cpp (26, 2)
+<Remainder loop>
+LOOP END
+=================================================================
+
+Begin optimization report for: pivot(int*, int, int)
+
+LOOP BEGIN at quicksort.cpp (38, 2)
+    remark #15344: Loop was not vectorized: vector dependence prevents vectorization
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (40, 5) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (40, 5) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /usr/lib/gcc/x86_64-linux-gnu/16/../../../../include/c++/16/bits/move.h (240, 11) ] and [ /usr/lib/gcc/x86_64-linux-gnu/16/../../../../include/c++/16/bits/move.h (240, 13) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /usr/lib/gcc/x86_64-linux-gnu/16/../../../../include/c++/16/bits/move.h (241, 11) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (39, 6) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /usr/lib/gcc/x86_64-linux-gnu/16/../../../../include/c++/16/bits/move.h (241, 11) ] and [ /usr/lib/gcc/x86_64-linux-gnu/16/../../../../include/c++/16/bits/move.h (240, 13) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /usr/lib/gcc/x86_64-linux-gnu/16/../../../../include/c++/16/bits/move.h (241, 11) ] and [ /usr/lib/gcc/x86_64-linux-gnu/16/../../../../include/c++/16/bits/move.h (240, 11) ] 
+    remark #25439: Loop unrolled with remainder by 4
+LOOP END
+
+LOOP BEGIN at quicksort.cpp (38, 2)
+<Remainder loop>
+LOOP END
+=================================================================
+
+Begin optimization report for: std::enable_if<__and_<std::__not_<std::__is_tuple_like<int>>, std::is_move_constructible<int>, std::is_move_assignable<int>>::value, void>::type std::swap<int>(int&, int&)
+=================================================================
+
+Begin optimization report for: quickSort(int*, int, int)
+
+LOOP BEGIN at quicksort.cpp (26, 2)
+    remark #15344: Loop was not vectorized: vector dependence prevents vectorization
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 12) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 14) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (20, 12) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (27, 6) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (20, 12) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 14) ] 
+    remark #15346: vector dependence: assumed OUTPUT dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (20, 12) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 12) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (29, 5) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (19, 14) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (29, 5) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (20, 12) ] 
+    remark #15346: vector dependence: assumed FLOW dependence between [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (29, 5) ] and [ /home/hlocal/CAP/CAP/src/lab2/Quicksort/quicksort.cpp (29, 5) ] 
+    remark #25439: Loop unrolled with remainder by 4
+LOOP END
+
+LOOP BEGIN at quicksort.cpp (26, 2)
+<Remainder loop>
+LOOP END
+
+OMP TASK BEGIN at quicksort.cpp (53, 3)
+    remark #30017: Construct outlined to quickSort(int*, int, int) (.extracted)
+OMP TASK END
+
+OMP TASK BEGIN at quicksort.cpp (55, 3)
+    remark #30017: Construct outlined to quickSort(int*, int, int) (.extracted.14)
+OMP TASK END
+=================================================================
+
+Begin optimization report for: quickSort(int*, int, int) (.extracted)
+
+OMP TASK BEGIN at quicksort.cpp (53, 3)
+OMP TASK END
+=================================================================
+
+Begin optimization report for: quickSort(int*, int, int) (.extracted.14)
+
+OMP TASK BEGIN at quicksort.cpp (55, 3)
+OMP TASK END
+=================================================================
+
+Begin optimization report for: checkFn(int*, int)
+
+LOOP BEGIN at quicksort.cpp (61, 2)
+    remark #15520: loop was not vectorized: loop with multiple exits cannot be vectorized unless it meets search loop idiom criteria
+    remark #25439: Loop unrolled with remainder by 8
+    remark #25583: Number of Array Refs Scalar Replaced In Loop: 8
+LOOP END
+
+LOOP BEGIN at quicksort.cpp (61, 2)
+<Remainder loop>
+    remark #25583: Number of Array Refs Scalar Replaced In Loop: 1
+LOOP END
+=================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>& std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&, char const*)
+=================================================================
+
+Begin optimization report for: std::ostream::operator<<(std::ostream& (*)(std::ostream&))
+=================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>& std::endl<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&)
+=================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::setstate(std::_Ios_Iostate)
+=================================================================
+
+Begin optimization report for: std::char_traits<char>::length(char const*)
+=================================================================
+
+Begin optimization report for: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)
+=================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::rdstate() const
+=================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>& std::flush<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&)
+=================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::widen(char) const
+=================================================================
+
+Begin optimization report for: std::ctype<char> const& std::__check_facet<std::ctype<char>>(std::ctype<char> const*)
+=================================================================
+
+Begin optimization report for: std::ctype<char>::widen(char) const
+=================================================================
+
+Begin optimization report for: main
+
+LOOP BEGIN at quicksort.cpp (12, 2)
+    remark #15527: Loop was not vectorized: function call to  cannot be vectorized
+    remark #25439: Loop unrolled with remainder by 8
+LOOP END
+
+LOOP BEGIN at quicksort.cpp (12, 2)
+<Remainder loop>
+LOOP END
+
+OMP PARALLEL BEGIN at quicksort.cpp (84, 2)
+    remark #30017: Construct outlined to main.extracted
+OMP PARALLEL END
+
+LOOP BEGIN at quicksort.cpp (98, 3)
+    remark #25260: Dead loop optimized away
+LOOP END
+=================================================================
+
+Begin optimization report for: main.extracted
+
+OMP PARALLEL BEGIN at quicksort.cpp (84, 2)
+
+    OMP SINGLE BEGIN at quicksort.cpp (86, 3)
+    OMP SINGLE END
+OMP PARALLEL END
+=================================================================
+
+Begin optimization report for: atoi
+=================================================================
+
+Begin optimization report for: std::ostream::operator<<(double)
+=================================================================
+
+---- Begin Inlining Report ----
+Option Values:
+  inline-threshold: 225
+  inlinehint-threshold: 325
+  inlinecold-threshold: 45
+  inlineoptsize-threshold: 15
+
+DEAD STATIC FUNC: std::ctype<char>::widen(char) const
+
+DEAD STATIC FUNC: std::basic_ios<char, std::char_traits<char>>::widen(char) const
+
+DEAD STATIC FUNC: std::basic_ios<char, std::char_traits<char>>::rdstate() const
+
+DEAD STATIC FUNC: std::ostream::operator<<(std::ostream& (*)(std::ostream&))
+
+DEAD STATIC FUNC: std::ostream::operator<<(double)
+
+DEAD STATIC FUNC: std::char_traits<char>::length(char const*)
+
+DEAD STATIC FUNC: std::basic_ios<char, std::char_traits<char>>::clear(std::_Ios_Iostate)
+
+DEAD STATIC FUNC: std::basic_ios<char, std::char_traits<char>>::setstate(std::_Ios_Iostate)
+
+DEAD STATIC FUNC: std::ctype<char> const& std::__check_facet<std::ctype<char>>(std::ctype<char> const*)
+
+DEAD STATIC FUNC: std::basic_ostream<char, std::char_traits<char>>& std::endl<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&)
+
+DEAD STATIC FUNC: std::enable_if<__and_<std::__not_<std::__is_tuple_like<int>>, std::is_move_constructible<int>, std::is_move_assignable<int>>::value, void>::type std::swap<int>(int&, int&)
+
+DEAD STATIC FUNC: std::basic_ostream<char, std::char_traits<char>>& std::flush<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&)
+
+DEAD STATIC FUNC: std::basic_ostream<char, std::char_traits<char>>& std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&, char const*)
+
+DEAD STATIC FUNC: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)
+
+DEAD STATIC FUNC: atoi
+
+DEAD STATIC FUNC: strlen
+
+COMPILE FUNC: init(int*, int)
+   -> DELETE: rand quicksort.cpp(13,10)
+
+COMPILE FUNC: swap(int*, int, int)
+
+COMPILE FUNC: partition(int*, int, int, int)
+   -> INLINE: swap(int*, int, int) quicksort.cpp(28,4)
+
+COMPILE FUNC: pivot(int*, int, int)
+   -> INLINE: std::enable_if<__and_<std::__not_<std::__is_tuple_like<int>>, std::is_move_constructible<int>, std::is_move_assignable<int>>::value, void>::type std::swap<int>(int&, int&) quicksort.cpp(44,2)
+   -> INLINE: std::enable_if<__and_<std::__not_<std::__is_tuple_like<int>>, std::is_move_constructible<int>, std::is_move_assignable<int>>::value, void>::type std::swap<int>(int&, int&) quicksort.cpp(41,4)
+
+COMPILE FUNC: quickSort(int*, int, int)
+   -> INLINE: partition(int*, int, int, int) quicksort.cpp(51,13)
+      -> INLINE: swap(int*, int, int) quicksort.cpp(28,4)
+   -> BROKER: __kmpc_omp_task_alloc quicksort.cpp(53,3)(quickSort(int*, int, int) (.extracted))
+   -> BROKER: __kmpc_omp_task_alloc quicksort.cpp(55,3)(quickSort(int*, int, int) (.extracted.14))
+
+COMPILE FUNC: checkFn(int*, int)
+   -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&, char const*) quicksort.cpp(63,9)
+      -> INLINE: std::basic_ios<char, std::char_traits<char>>::setstate(std::_Ios_Iostate) ostream.h(737,8)
+         -> INLINE: std::basic_ios<char, std::char_traits<char>>::rdstate() const basic_ios.h(168,27)
+         -> INLINE: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate) basic_ios.h(168,37)
+         -> DELETE: std::basic_ios<char, std::char_traits<char>>::clear(std::_Ios_Iostate) basic_ios.h(168,15)
+      -> INLINE: std::char_traits<char>::length(char const*) ostream.h(740,29)
+         -> DELETE: strlen char_traits.h(396,9)
+   -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&, char const*) quicksort.cpp(63,26)
+      -> INLINE: std::basic_ios<char, std::char_traits<char>>::setstate(std::_Ios_Iostate) ostream.h(737,8)
+         -> INLINE: std::basic_ios<char, std::char_traits<char>>::rdstate() const basic_ios.h(168,27)
+         -> INLINE: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate) basic_ios.h(168,37)
+         -> DELETE: std::basic_ios<char, std::char_traits<char>>::clear(std::_Ios_Iostate) basic_ios.h(168,15)
+      -> INLINE: std::char_traits<char>::length(char const*) ostream.h(740,29)
+         -> DELETE: strlen char_traits.h(396,9)
+   -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&, char const*) quicksort.cpp(63,49)
+      -> INLINE: std::basic_ios<char, std::char_traits<char>>::setstate(std::_Ios_Iostate) ostream.h(737,8)
+         -> INLINE: std::basic_ios<char, std::char_traits<char>>::rdstate() const basic_ios.h(168,27)
+         -> INLINE: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate) basic_ios.h(168,37)
+         -> DELETE: std::basic_ios<char, std::char_traits<char>>::clear(std::_Ios_Iostate) basic_ios.h(168,15)
+      -> INLINE: std::char_traits<char>::length(char const*) ostream.h(740,29)
+         -> DELETE: strlen char_traits.h(396,9)
+   -> INLINE: std::ostream::operator<<(std::ostream& (*)(std::ostream&)) quicksort.cpp(63,56)
+      -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::endl<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&) ostream.h(121,9)
+         -> INLINE: std::basic_ios<char, std::char_traits<char>>::widen(char) const ostream(67,34)
+            -> INLINE: std::ctype<char> const& std::__check_facet<std::ctype<char>>(std::ctype<char> const*) basic_ios.h(466,16)
+            -> INLINE: std::ctype<char>::widen(char) const basic_ios.h(466,40)
+         -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::flush<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&) ostream(67,14)
+
+COMPILE FUNC: main
+   -> INLINE: atoi quicksort.cpp(78,5)
+   -> INLINE: init(int*, int) quicksort.cpp(81,2)
+      -> DELETE: rand quicksort.cpp(13,10)
+   -> checkFn(int*, int) quicksort.cpp(92,7)
+   -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&, char const*) quicksort.cpp(93,8)
+      -> INLINE: std::basic_ios<char, std::char_traits<char>>::setstate(std::_Ios_Iostate) ostream.h(737,8)
+         -> INLINE: std::basic_ios<char, std::char_traits<char>>::rdstate() const basic_ios.h(168,27)
+         -> INLINE: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate) basic_ios.h(168,37)
+         -> DELETE: std::basic_ios<char, std::char_traits<char>>::clear(std::_Ios_Iostate) basic_ios.h(168,15)
+      -> INLINE: std::char_traits<char>::length(char const*) ostream.h(740,29)
+         -> DELETE: strlen char_traits.h(396,9)
+   -> INLINE: std::ostream::operator<<(std::ostream& (*)(std::ostream&)) quicksort.cpp(93,32)
+      -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::endl<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&) ostream.h(121,9)
+         -> INLINE: std::basic_ios<char, std::char_traits<char>>::widen(char) const ostream(67,34)
+            -> INLINE: std::ctype<char> const& std::__check_facet<std::ctype<char>>(std::ctype<char> const*) basic_ios.h(466,16)
+            -> INLINE: std::ctype<char>::widen(char) const basic_ios.h(466,40)
+         -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::flush<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&) ostream(67,14)
+   -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&, char const*) quicksort.cpp(103,7)
+      -> INLINE: std::basic_ios<char, std::char_traits<char>>::setstate(std::_Ios_Iostate) ostream.h(737,8)
+         -> INLINE: std::basic_ios<char, std::char_traits<char>>::rdstate() const basic_ios.h(168,27)
+         -> INLINE: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate) basic_ios.h(168,37)
+         -> DELETE: std::basic_ios<char, std::char_traits<char>>::clear(std::_Ios_Iostate) basic_ios.h(168,15)
+      -> INLINE: std::char_traits<char>::length(char const*) ostream.h(740,29)
+         -> DELETE: strlen char_traits.h(396,9)
+   -> INLINE: std::ostream::operator<<(double) quicksort.cpp(103,28)
+   -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&, char const*) quicksort.cpp(103,34)
+      -> INLINE: std::basic_ios<char, std::char_traits<char>>::setstate(std::_Ios_Iostate) ostream.h(737,8)
+         -> INLINE: std::basic_ios<char, std::char_traits<char>>::rdstate() const basic_ios.h(168,27)
+         -> INLINE: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate) basic_ios.h(168,37)
+         -> DELETE: std::basic_ios<char, std::char_traits<char>>::clear(std::_Ios_Iostate) basic_ios.h(168,15)
+      -> INLINE: std::char_traits<char>::length(char const*) ostream.h(740,29)
+         -> DELETE: strlen char_traits.h(396,9)
+   -> INLINE: std::ostream::operator<<(std::ostream& (*)(std::ostream&)) quicksort.cpp(103,57)
+      -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::endl<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&) ostream.h(121,9)
+         -> INLINE: std::basic_ios<char, std::char_traits<char>>::widen(char) const ostream(67,34)
+            -> INLINE: std::ctype<char> const& std::__check_facet<std::ctype<char>>(std::ctype<char> const*) basic_ios.h(466,16)
+            -> INLINE: std::ctype<char>::widen(char) const basic_ios.h(466,40)
+         -> INLINE: std::basic_ostream<char, std::char_traits<char>>& std::flush<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>>&) ostream(67,14)
+   -> BROKER: __kmpc_fork_call quicksort.cpp(84,2)(main.extracted)
+
+COMPILE FUNC: quickSort(int*, int, int) (.extracted)
+   -> quickSort(int*, int, int) quicksort.cpp(54,3)
+
+COMPILE FUNC: quickSort(int*, int, int) (.extracted.14)
+   -> quickSort(int*, int, int) quicksort.cpp(56,3)
+
+COMPILE FUNC: main.extracted
+   -> quickSort(int*, int, int) quicksort.cpp(87,3)
+
+---- End Inlining Report ------
+Register allocation report for: init(int*, int)
+FUNCTION BEGIN
+ LOOP1 BEGIN at (quicksort.cpp:12:2)
+ LOOP1 END
+ LOOP1 BEGIN at (quicksort.cpp:12:2)
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 25 [ rbp r8 r9 r10 r11 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 5 [ rbx r12 r13 r14 r15  ]
+ Assigned : 11 [ eflags rax rbx rcx rdi rdx rsi r12 r13 r14 r15  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: swap(int*, int, int)
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 0 [  ]
+ Available : 30 [ rbp rbx r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 0 [  ]
+ Assigned : 5 [ rax rcx rdi rdx rsi  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: partition(int*, int, int, int)
+FUNCTION BEGIN
+ LOOP1 BEGIN at (quicksort.cpp:26:2)
+ LOOP1 END
+ LOOP1 BEGIN at (quicksort.cpp:26:2)
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 0 [  ]
+ Available : 24 [ r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 0 [  ]
+ Assigned : 12 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: pivot(int*, int, int)
+FUNCTION BEGIN
+ LOOP1 BEGIN at (quicksort.cpp:38:2)
+ LOOP1 END
+ LOOP1 BEGIN at (quicksort.cpp:38:2)
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 0 [  ]
+ Available : 24 [ r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 1 [ rbx  ]
+ Assigned : 12 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: quickSort(int*, int, int)
+FUNCTION BEGIN
+ LOOP1 BEGIN at (quicksort.cpp:26:2 @[ quicksort.cpp:51:13 ])
+ LOOP1 END
+ LOOP1 BEGIN at (quicksort.cpp:26:2 @[ quicksort.cpp:51:13 ])
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 21 [ r13 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 2 [ r14 r12  ]
+ Assigned : 15 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r14 r15  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: checkFn(int*, int)
+FUNCTION BEGIN
+ 1 reloads 9 spills 
+ LOOP1 BEGIN at (quicksort.cpp:61:2)
+ LOOP1 END
+ LOOP1 BEGIN at (quicksort.cpp:61:2)
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 26 [ rbp r10 r11 r12 r13 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 2 [ rbx r14  ]
+ Assigned : 10 [ eflags rax rbx rcx rdi rdx rsi r8 r9 r14  ]
+
+Routine stack 
+ Variables : 8 Bytes
+   Read Count : 1
+   Write Count : 9
+ Spills : 72 Bytes
+   Read Count : 1
+   Write Count : 9
+
+FUNCTION END
+Register allocation report for: main
+FUNCTION BEGIN
+ 3 reloads 3 spills 
+ LOOP1 BEGIN at (quicksort.cpp:12:2 @[ quicksort.cpp:81:2 ])
+ LOOP1 END
+ LOOP1 BEGIN at (quicksort.cpp:12:2 @[ quicksort.cpp:81:2 ])
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp rip mxcsr  ]
+ Available : 22 [ r9 r10 r11 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 5 [ rbx r12 r13 r14 r15  ]
+ Assigned : 14 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r12 r13 r14 r15 zmm0  ]
+
+Routine stack 
+ Variables : 16 Bytes
+   Read Count : 3
+   Write Count : 3
+ Spills : 24 Bytes
+   Read Count : 3
+   Write Count : 3
+
+FUNCTION END
+Register allocation report for: quickSort(int*, int, int) (.extracted)
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 31 [ rbp rbx rcx r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 0 [  ]
+ Assigned : 5 [ eflags rax rdi rdx rsi  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: quickSort(int*, int, int) (.extracted.14)
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 31 [ rbp rbx rcx r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 0 [  ]
+ Assigned : 5 [ eflags rax rdi rdx rsi  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: main.extracted
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 27 [ rbp r8 r9 r10 r11 r12 r13 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 3 [ r15 r14 rbx  ]
+ Assigned : 9 [ eflags rax rbx rcx rdi rdx rsi r14 r15  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
