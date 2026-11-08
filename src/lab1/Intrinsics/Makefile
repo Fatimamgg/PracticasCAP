@@ -1,4 +1,4 @@
-CC   = icx
+CC   = gcc#icx
 
 EXE   = main 
 
@@ -7,10 +7,10 @@ SOURCES    = main.c
 
 OBJS    = stencil.o pngio.o main.o 
 
-CFLAGS     = -O2
+CFLAGS     = -O2 -march=native
 NVCFLAGS   = $(CFLAGS)
 
-LIBS =  -lm -lpng
+LIBS =  -lm -lpng 
 
 SOURCEDIR = .
 
