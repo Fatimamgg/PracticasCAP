@@ -1,0 +1,166 @@
+Begin optimization report for: comp_fib_numbers
+
+OMP TASK BEGIN at fibo_task.c (10, 2)
+    remark #30017: Construct outlined to comp_fib_numbers.extracted
+OMP TASK END
+
+OMP TASK BEGIN at fibo_task.c (12, 2)
+    remark #30017: Construct outlined to comp_fib_numbers.extracted.11
+OMP TASK END
+
+OMP TASKWAIT BEGIN at fibo_task.c (14, 2)
+OMP TASKWAIT END
+=================================================================
+
+Begin optimization report for: comp_fib_numbers.extracted
+
+OMP TASK BEGIN at fibo_task.c (10, 2)
+OMP TASK END
+=================================================================
+
+Begin optimization report for: comp_fib_numbers.extracted.11
+
+OMP TASK BEGIN at fibo_task.c (12, 2)
+OMP TASK END
+=================================================================
+
+Begin optimization report for: main
+
+OMP PARALLEL BEGIN at fibo_task.c (33, 1)
+    remark #30017: Construct outlined to main.extracted
+OMP PARALLEL END
+=================================================================
+
+Begin optimization report for: main.extracted
+
+OMP PARALLEL BEGIN at fibo_task.c (33, 1)
+
+    OMP SINGLE BEGIN at fibo_task.c (35, 2)
+    OMP SINGLE END
+OMP PARALLEL END
+=================================================================
+
+Begin optimization report for: atoi
+=================================================================
+
+---- Begin Inlining Report ----
+Option Values:
+  inline-threshold: 225
+  inlinehint-threshold: 325
+  inlinecold-threshold: 45
+  inlineoptsize-threshold: 15
+
+DEAD STATIC FUNC: atoi
+
+COMPILE FUNC: comp_fib_numbers
+   -> comp_fib_numbers fibo_task.c(8,21)
+   -> comp_fib_numbers fibo_task.c(8,44)
+   -> BROKER: __kmpc_omp_task_alloc fibo_task.c(10,2)(comp_fib_numbers.extracted)
+   -> BROKER: __kmpc_omp_task_alloc fibo_task.c(12,2)(comp_fib_numbers.extracted.11)
+
+COMPILE FUNC: main
+   -> INLINE: atoi fibo_task.c(28,17)
+   -> INLINE: atoi fibo_task.c(29,6)
+   -> BROKER: __kmpc_fork_call fibo_task.c(33,1)(main.extracted)
+
+COMPILE FUNC: comp_fib_numbers.extracted
+   -> comp_fib_numbers fibo_task.c(11,10)
+
+COMPILE FUNC: comp_fib_numbers.extracted.11
+   -> comp_fib_numbers fibo_task.c(13,10)
+
+COMPILE FUNC: main.extracted
+   -> comp_fib_numbers fibo_task.c(36,9)
+
+---- End Inlining Report ------
+Register allocation report for: comp_fib_numbers
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 25 [ r10 r11 r12 r13 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 2 [ rbx r14  ]
+ Assigned : 11 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r14  ]
+
+Routine stack 
+ Variables : 16 Bytes
+   Read Count : 2
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: main
+FUNCTION BEGIN
+ 2 reloads 2 spills 
+
+Hardware registers used
+ Reserved : 3 [ mxcsr rsp ssp  ]
+ Available : 27 [ rbp r9 r10 r11 r12 r13 r14 r15 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 1 [ rbx  ]
+ Assigned : 9 [ eflags rax rbx rcx rdi rdx rsi r8 zmm0  ]
+
+Routine stack 
+ Variables : 28 Bytes
+   Read Count : 5
+   Write Count : 5
+ Spills : 16 Bytes
+   Read Count : 2
+   Write Count : 2
+
+FUNCTION END
+Register allocation report for: comp_fib_numbers.extracted
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 31 [ rbp rcx rdx r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 1 [ rbx  ]
+ Assigned : 5 [ eflags rax rbx rdi rsi  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: comp_fib_numbers.extracted.11
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 31 [ rbp rcx rdx r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 1 [ rbx  ]
+ Assigned : 5 [ eflags rax rbx rdi rsi  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: main.extracted
+FUNCTION BEGIN
+
+Hardware registers used
+ Reserved : 2 [ rsp ssp  ]
+ Available : 27 [ rbp r8 r9 r10 r11 r12 r13 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 3 [ r14 r15 rbx  ]
+ Assigned : 9 [ eflags rax rbx rcx rdi rdx rsi r14 r15  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END

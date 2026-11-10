@@ -1,0 +1,465 @@
+Begin optimization report for: CalculateElectricPotential(int, Charge_Distribution const&, float, float, float, float&)
+
+LOOP BEGIN at main.cc (24, 5)
+<Multiversioned v1>
+    remark #25228: Loop multiversioned for Data Dependence
+    remark #25564: Store sinked out of the loop
+    remark #15300: LOOP WAS VECTORIZED
+    remark #15305: vectorization support: vector length 8
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (26, 24) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (27, 24) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (28, 24) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (29, 16) ] 
+    remark #15475: --- begin vector loop cost summary ---
+    remark #15476: scalar cost: 29.000000 
+    remark #15477: vector cost: 6.484375 
+    remark #15478: estimated potential speedup: 4.375000 
+    remark #15309: vectorization support: normalized vectorization overhead 1.218750
+    remark #15591: vectorized intrinsic functions: 1
+    remark #15488: --- end vector loop cost summary ---
+    remark #15447: --- begin vector loop memory reference summary ---
+    remark #15450: unmasked unaligned unit stride loads: 4 
+    remark #15474: --- end vector loop memory reference summary ---
+    remark #25587: Loop has reduction
+    remark #15590: vectorization support: add reduction with value type float [main.cc:29:13]
+LOOP END
+
+LOOP BEGIN at main.cc (24, 5)
+<Multiversioned v1>
+<Remainder loop for vectorization>
+    remark #15440: remainder loop was vectorized (masked)
+    remark #15305: vectorization support: vector length 8
+    remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (26, 24) ] 
+    remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (27, 24) ] 
+    remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (28, 24) ] 
+    remark #15389: vectorization support: masked unaligned unit stride load: [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (29, 16) ] 
+    remark #15475: --- begin vector loop cost summary ---
+    remark #15591: vectorized intrinsic functions: 1
+    remark #15488: --- end vector loop cost summary ---
+    remark #15447: --- begin vector loop memory reference summary ---
+    remark #15456: masked unaligned unit stride loads: 4 
+    remark #15474: --- end vector loop memory reference summary ---
+    remark #25261: Single iteration loop optimized away
+LOOP END
+
+LOOP BEGIN at main.cc (24, 5)
+<Multiversioned v2>
+    remark #15615: Loop was not vectorized: not vectorizable due to data dependence, fall-back loop for multiversioning
+LOOP END
+=================================================================
+
+Begin optimization report for: rngNumber(float, float, float)
+=================================================================
+
+Begin optimization report for: main
+
+FUNCTION REPORT BEGIN
+    remark #15619: SLP vectorization performed on 22 operation groups in function
+FUNCTION REPORT END
+
+LOOP BEGIN at main.cc (61, 5)
+    remark #15527: Loop was not vectorized: function call to  cannot be vectorized
+    remark #25438: Loop unrolled without remainder by 4
+    remark #15620: SLP vectorization performed on 20 operation groups in loop
+LOOP END
+
+LOOP BEGIN at main.cc (71, 5)
+<Predicate Optimized v1, split from line 87>
+    remark #25452: Poor spatial locality detected in memref(s). 
+    remark #25445: Loop interchange not done due to: non-perfect loopnest
+    remark #25451: Advice: Loop interchange, if possible, might help loopnest. Suggested Permutation: ( 1 2 3 ) --> ( 2 3 1 )
+    remark #25580: Induction variable range split using condition at line 87
+    remark #15541: loop was not vectorized: outer loop is not an auto-vectorization candidate.
+
+    LOOP BEGIN at main.cc (73, 2)
+        remark #25260: Dead loop optimized away
+    LOOP END
+
+    LOOP BEGIN at main.cc (78, 9)
+        remark #25540: Loop unrolled and jammed by 8
+        remark #25541: Unroll & Jam factor can be tuned using unroll_and_jam directive/pragma or it can be suppressed using nounroll_and_jam directive/pragma
+        remark #15541: loop was not vectorized: outer loop is not an auto-vectorization candidate.
+
+        LOOP BEGIN at main.cc (24, 5)
+            remark #25583: Number of Array Refs Scalar Replaced In Loop: 28
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15305: vectorization support: vector length 8
+            remark #15389: vectorization support: unmasked unaligned unit stride load: chg [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (26, 24) ] 
+            remark #15389: vectorization support: unmasked unaligned unit stride load: chg [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (27, 24) ] 
+            remark #15389: vectorization support: unmasked unaligned unit stride load: chg [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (28, 24) ] 
+            remark #15389: vectorization support: unmasked unaligned unit stride load: chg [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (29, 16) ] 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar cost: 182.000000 
+            remark #15477: vector cost: 39.859375 
+            remark #15478: estimated potential speedup: 4.546875 
+            remark #15309: vectorization support: normalized vectorization overhead 1.000000
+            remark #15570: using scalar loop trip count: 1024
+            remark #15591: vectorized intrinsic functions: 8
+            remark #15488: --- end vector loop cost summary ---
+            remark #15447: --- begin vector loop memory reference summary ---
+            remark #15450: unmasked unaligned unit stride loads: 4 
+            remark #15474: --- end vector loop memory reference summary ---
+            remark #25587: Loop has reduction
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+        LOOP END
+    LOOP END
+LOOP END
+
+LOOP BEGIN at main.cc (71, 5)
+<Predicate Optimized v2, split from line 87>
+    remark #15541: loop was not vectorized: outer loop is not an auto-vectorization candidate.
+    remark #15620: SLP vectorization performed on 2 operation groups in loop
+
+    LOOP BEGIN at main.cc (78, 9)
+        remark #25540: Loop unrolled and jammed by 8
+        remark #25541: Unroll & Jam factor can be tuned using unroll_and_jam directive/pragma or it can be suppressed using nounroll_and_jam directive/pragma
+        remark #15541: loop was not vectorized: outer loop is not an auto-vectorization candidate.
+
+        LOOP BEGIN at main.cc (24, 5)
+            remark #25583: Number of Array Refs Scalar Replaced In Loop: 28
+            remark #15300: LOOP WAS VECTORIZED
+            remark #15305: vectorization support: vector length 8
+            remark #15389: vectorization support: unmasked unaligned unit stride load: chg [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (26, 24) ] 
+            remark #15389: vectorization support: unmasked unaligned unit stride load: chg [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (27, 24) ] 
+            remark #15389: vectorization support: unmasked unaligned unit stride load: chg [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (28, 24) ] 
+            remark #15389: vectorization support: unmasked unaligned unit stride load: chg [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (29, 16) ] 
+            remark #15475: --- begin vector loop cost summary ---
+            remark #15476: scalar cost: 182.000000 
+            remark #15477: vector cost: 39.859375 
+            remark #15478: estimated potential speedup: 4.546875 
+            remark #15309: vectorization support: normalized vectorization overhead 1.000000
+            remark #15570: using scalar loop trip count: 1024
+            remark #15591: vectorized intrinsic functions: 8
+            remark #15488: --- end vector loop cost summary ---
+            remark #15447: --- begin vector loop memory reference summary ---
+            remark #15450: unmasked unaligned unit stride loads: 4 
+            remark #15474: --- end vector loop memory reference summary ---
+            remark #25587: Loop has reduction
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+            remark #15590: vectorization support: add reduction with value type float [main.cc:29:13 @[ main.cc:82:13 ]]
+        LOOP END
+    LOOP END
+LOOP END
+
+LOOP BEGIN at main.cc (97, 5)
+    remark #15300: LOOP WAS VECTORIZED
+    remark #15305: vectorization support: vector length 4
+    remark #15399: vectorization support: unroll factor 4
+    remark #15389: vectorization support: unmasked unaligned unit stride load: potential [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (98, 17) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: potential [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (98, 17) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: potential [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (98, 17) ] 
+    remark #15389: vectorization support: unmasked unaligned unit stride load: potential [ /home/hlocal/PracticasCAP/src/lab1/ElectricPotential/ver2/main.cc (98, 17) ] 
+    remark #15475: --- begin vector loop cost summary ---
+    remark #15476: scalar cost: 5.000000 
+    remark #15477: vector cost: 1.203125 
+    remark #15478: estimated potential speedup: 4.093750 
+    remark #15309: vectorization support: normalized vectorization overhead 5.812500
+    remark #15570: using scalar loop trip count: 1048576
+    remark #15488: --- end vector loop cost summary ---
+    remark #15447: --- begin vector loop memory reference summary ---
+    remark #15450: unmasked unaligned unit stride loads: 4 
+    remark #15474: --- end vector loop memory reference summary ---
+    remark #25587: Loop has reduction
+    remark #15590: vectorization support: add reduction with value type double [main.cc:98:14]
+LOOP END
+=================================================================
+
+Begin optimization report for: CPUTime::CPUTime()
+=================================================================
+
+Begin optimization report for: CPUTime::start()
+=================================================================
+
+Begin optimization report for: CPUTime::readTime()
+=================================================================
+
+---- Begin Inlining Report ----
+Option Values:
+  inline-threshold: 225
+  inlinehint-threshold: 325
+  inlinecold-threshold: 45
+  inlineoptsize-threshold: 15
+
+DEAD STATIC FUNC: CPUTime::start()
+
+DEAD STATIC FUNC: CPUTime::readTime()
+
+DEAD STATIC FUNC: CPUTime::CPUTime()
+
+DEAD STATIC FUNC: llvm.ssa.copy.f32
+
+DEAD STATIC FUNC: llvm.ssa.copy.f64
+
+DEAD STATIC FUNC: llvm.ssa.copy.i32
+
+DEAD STATIC FUNC: llvm.ssa.copy.i64
+
+COMPILE FUNC: CalculateElectricPotential(int, Charge_Distribution const&, float, float, float, float&)
+   -> DELETE: llvm.sqrt.f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.sqrt.f32 main.cc(29,27)
+   -> DELETE: llvm.ssa.copy.i64 main.cc(24,29)
+   -> llvm.masked.load.v8f32.p0 main.cc(26,24)
+   -> llvm.masked.load.v8f32.p0 main.cc(27,24)
+   -> llvm.masked.load.v8f32.p0 main.cc(28,24)
+   -> llvm.masked.load.v8f32.p0 main.cc(29,16)
+
+COMPILE FUNC: rngNumber(float, float, float)
+   -> EXTERN: rand main.cc(39,10)
+
+COMPILE FUNC: main
+   -> INLINE: CPUTime::CPUTime() main.cc(49,13) (-15035<=337)
+   -> DELETE: llvm.memset.p0.i64 main.cc(51,25)
+   -> EXTERN: malloc main.cc(52,21)
+   -> EXTERN: malloc main.cc(53,21)
+   -> EXTERN: malloc main.cc(54,21)
+   -> EXTERN: malloc main.cc(55,21)
+   -> EXTERN: malloc main.cc(56,33)
+   -> EXTERN: puts main.cc(59,5)
+   -> EXTERN: puts main.cc(67,5)
+   -> EXTERN: printf main.cc(69,5)
+   -> INLINE: rngNumber(float, float, float) main.cc(62,18) (5<=337)
+      -> DELETE: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+   -> INLINE: rngNumber(float, float, float) main.cc(63,18) (5<=337)
+      -> DELETE: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+   -> INLINE: rngNumber(float, float, float) main.cc(64,18) (5<=337)
+      -> DELETE: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+   -> INLINE: rngNumber(float, float, float) main.cc(65,18) (5<=337)
+      -> DELETE: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+      -> EXTERN: rand main.cc(39,10)
+   -> INLINE: CPUTime::start() main.cc(76,32) (40<=1012)
+      -> INLINE: CPUTime::readTime() cpu_time.hpp(45,36) (-14955<=487)
+         -> DELETE: gettimeofday cpu_time.hpp(38,7)
+         -> EXTERN: gettimeofday cpu_time.hpp(38,7)
+         -> EXTERN: gettimeofday cpu_time.hpp(38,7)
+   -> INLINE: CPUTime::start() main.cc(84,32) (-14960<=487)
+      -> INLINE: CPUTime::readTime() cpu_time.hpp(45,36) (-14955<=487)
+         -> DELETE: gettimeofday cpu_time.hpp(38,7)
+         -> EXTERN: gettimeofday cpu_time.hpp(38,7)
+         -> EXTERN: gettimeofday cpu_time.hpp(38,7)
+   -> INLINE: CalculateElectricPotential(int, Charge_Distribution const&, float, float, float, float&) main.cc(82,13) (45<=225)
+      -> DELETE: llvm.sqrt.f32 main.cc(29,27)
+   -> DELETE: printf main.cc(92,2)
+   -> DELETE: fflush main.cc(94,2)
+   -> llvm.sqrt.f64 main.cc(101,11)
+   -> EXTERN: puts main.cc(102,5)
+   -> EXTERN: printf main.cc(103,5)
+   -> EXTERN: puts main.cc(105,5)
+   -> EXTERN: puts main.cc(106,5)
+   -> EXTERN: printf main.cc(107,5)
+   -> EXTERN: free main.cc(108,5)
+   -> EXTERN: free main.cc(109,5)
+   -> EXTERN: free main.cc(110,5)
+   -> EXTERN: free main.cc(111,5)
+   -> EXTERN: free main.cc(112,5)
+   -> DELETE: llvm.memset.p0.i64 main.cc(51,25)
+   -> DELETE: llvm.memset.p0.i64 main.cc(51,25)
+   -> DELETE: llvm.memset.p0.i64 main.cc(51,25)
+   -> DELETE: llvm.memset.p0.i64 main.cc(51,25)
+   -> DELETE: llvm.memset.p0.i64 main.cc(51,25)
+   -> DELETE: llvm.memset.p0.i64 main.cc(51,25)
+   -> DELETE: llvm.memset.p0.i64 main.cc(74,15)
+   -> llvm.memset.p0.i64 main.cc(74,15)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> EXTERN: printf main.cc(92,2)
+   -> EXTERN: fflush main.cc(94,2)
+   -> llvm.memset.p0.i64 main.cc(74,15)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.sqrt.v8f32 main.cc(29,27)
+   -> llvm.sqrt.v8f32 main.cc(29,27)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> DELETE: llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> llvm.vector.reduce.fadd.v8f32 main.cc(29,13)
+   -> EXTERN: printf main.cc(92,2)
+   -> EXTERN: fflush main.cc(94,2)
+   -> DELETE: llvm.vector.reduce.fadd.v4f64 main.cc(98,14)
+   -> llvm.vector.reduce.fadd.v4f64 main.cc(98,14)
+   -> DELETE: llvm.ssa.copy.i64 main.cc(61,28)
+   -> DELETE: llvm.ssa.copy.i64
+   -> DELETE: llvm.ssa.copy.f64 main.cc(93,29)
+   -> DELETE: llvm.ssa.copy.f64 main.cc(93,15)
+   -> DELETE: llvm.ssa.copy.i64
+   -> DELETE: llvm.ssa.copy.f32
+   -> DELETE: llvm.ssa.copy.i64 main.cc(24,29)
+   -> DELETE: llvm.ssa.copy.i64 main.cc(78,35)
+   -> DELETE: llvm.ssa.copy.f64 main.cc(88,20)
+   -> DELETE: llvm.ssa.copy.f64 main.cc(88,24)
+   -> DELETE: llvm.ssa.copy.f64
+   -> DELETE: llvm.ssa.copy.f64
+   -> DELETE: llvm.ssa.copy.i32 main.cc(71,32)
+   -> DELETE: llvm.ssa.copy.i64 main.cc(97,27)
+
+---- End Inlining Report ------
+Register allocation report for: CalculateElectricPotential(int, Charge_Distribution const&, float, float, float, float&)
+FUNCTION BEGIN
+ LOOP1 BEGIN at (main.cc:24:5)
+ LOOP1 END
+ LOOP1 BEGIN at (main.cc:24:5)
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 2 [ rip mxcsr  ]
+ Available : 9 [ r13 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 0 [  ]
+ Assigned : 27 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11  ]
+
+Routine stack 
+ Variables : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+ Spills : 0 Bytes
+   Read Count : 0
+   Write Count : 0
+
+FUNCTION END
+Register allocation report for: rngNumber(float, float, float)
+FUNCTION BEGIN
+ 2 reloads 2 spills 
+
+Hardware registers used
+ Reserved : 3 [ mxcsr rsp ssp  ]
+ Available : 29 [ rbp rcx rdi rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15 k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 0 [  ]
+ Assigned : 7 [ eflags rax rbx rdx zmm0 zmm1 zmm2  ]
+
+Routine stack 
+ Variables : 8 Bytes
+   Read Count : 2
+   Write Count : 2
+ Spills : 8 Bytes
+   Read Count : 2
+   Write Count : 2
+
+FUNCTION END
+Register allocation report for: main
+FUNCTION BEGIN
+ 4 reloads 7 spills 
+ LOOP1 BEGIN at (main.cc:61:5)
+  20 reloads 12 spills 
+ LOOP1 END
+ LOOP1 BEGIN at (main.cc:71:5)
+  5 reloads 4 spills 
+  LOOP2 BEGIN at (main.cc:78:9)
+   8 spills 
+   LOOP3 BEGIN at (main.cc:24:5 @[ main.cc:82:13 ])
+    8 reloads 
+   LOOP3 END
+  LOOP2 END
+ LOOP1 END
+ LOOP1 BEGIN at (main.cc:71:5)
+  5 reloads 5 spills 
+  LOOP2 BEGIN at (main.cc:78:9)
+   9 spills 
+   LOOP3 BEGIN at (main.cc:24:5 @[ main.cc:82:13 ])
+    9 reloads 
+   LOOP3 END
+  LOOP2 END
+ LOOP1 END
+ LOOP1 BEGIN at (main.cc:97:5)
+ LOOP1 END
+
+Hardware registers used
+ Reserved : 4 [ rsp ssp rip mxcsr  ]
+ Available : 4 [ k0_k1 k2_k3 k4_k5 k6_k7  ]
+ Callee Saved : 6 [ rbp rbx r12 r13 r14 r15  ]
+ Assigned : 32 [ eflags rax rbp rbx rcx rdi rdx rsi r8 r9 r10 r11 r12 r13 r14 r15 zmm0 zmm1 zmm2 zmm3 zmm4 zmm5 zmm6 zmm7 zmm8 zmm9 zmm10 zmm11 zmm12 zmm13 zmm14 zmm15  ]
+
+Routine stack 
+ Variables : 348 Bytes
+   Read Count : 59
+   Write Count : 45
+ Spills : 752 Bytes
+   Read Count : 51
+   Write Count : 45
+
+FUNCTION END
