@@ -75,7 +75,7 @@ void ApplyStencil(unsigned char *img_in, unsigned char *img_out, int width, int 
 				img_out[i*width + j] = (unsigned char)(val);
 			}
 	}
-
+}
 */
 
 
@@ -116,7 +116,7 @@ void ApplyStencil(unsigned char *img_in, unsigned char *img_out, int width, int 
 
             __m128i val_o = _mm_packus_epi16(linea0, linea1);
 
-            _mm_storeu_epi16((__m128i*)&img_out[i*width + j], val_o);
+            _mm_storeu_si128((__m128i*)&img_out[i*width + j], val_o);
         }
 
         for (; j < width - 1; j++) {
