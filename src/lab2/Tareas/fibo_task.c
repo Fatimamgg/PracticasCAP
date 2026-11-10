@@ -7,9 +7,9 @@ long comp_fib_numbers(int n)
 	if ( n == 0 || n == 1 ) return(1);
 	if ( n<20 ) return(comp_fib_numbers(n-1) +comp_fib_numbers(n-2));
 
-	#pragma omp task shared(fnm1)
+	#pragma omp task shared(fnm1) firstprivate(n)
 	{fnm1 = comp_fib_numbers(n-1);}
-	#pragma omp task shared(fnm2)
+	#pragma omp task shared(fnm2) firstprivate(n)
 	{fnm2 = comp_fib_numbers(n-2);}
 	#pragma omp taskwait
 	fn = fnm1 + fnm2;
