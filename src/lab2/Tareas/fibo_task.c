@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <omp.h>
 
 long comp_fib_numbers(int n)
