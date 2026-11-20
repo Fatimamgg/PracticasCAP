@@ -5,6 +5,7 @@
 #include <string.h>
 #include <time.h>
 #include <omp.h>
+#include <mpi.h>
 
 #include "colormap.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -44,27 +45,33 @@ static void init(unsigned int source_x, unsigned int source_y, float * matrix) {
 }
 
 
-static void step(unsigned int source_x, unsigned int source_y, const float * current, float * next) {
+static void step(unsigned int source_x, unsigned int source_y, unsigned int inicio_fila, unsigned int filas_local, const float * current, float * next) {
 
-	for (unsigned int y = 1; y < N-1; ++y) {
-		for (unsigned int x = 1; x < N-1; ++x) {
-			if ((y == source_y) && (x == source_x)) {
-				continue;
+	for (unsigned int ly = 1; ly <= filas_local: ++ly) {
+		unsigned int gy = inicio_fila + (ly - 1);
+		if (gy == 0 || gy == N-1) continue;
+			for (unsigned int x = 1; x < N-1; ++x) {
+				if ((gy == source_y) && (x == source_x)) {
+					continue;
+				}
+				next[idx(x, ly, N)] = (current[idx(x, ly-1, N)] +
+									  current[idx(x-1, ly, N)] +
+									  current[idx(x+1, ly, N)] +
+									  current[idx(x, ly+1, N)]) / 4.0f;
 			}
-			next[idx(x, y, N)] = (current[idx(x, y-1, N)] +
-			current[idx(x-1, y, N)] +
-			current[idx(x+1, y, N)] +
-			current[idx(x, y+1, N)]) / 4.0f;
 		}
-	}
+	
 }
 
 
-static float diff(const float * current, const float * next) {
+
+static float diff(unsigned int inicio_fila, unsigned int filas_local, const float * current, const float * next) {
 	float maxdiff = 0.0f;
-	for (unsigned int y = 1; y < N-1; ++y) {
+	for (unsigned int ly = 1; ly < filas_local; ++ly) {
+		unsigned int gy = inicio_fila + (ly - 1);
+		if (gy == 0 || gy == N-1) continue;
 		for (unsigned int x = 1; x < N-1; ++x) {
-			maxdiff = fmaxf(maxdiff, fabsf(next[idx(x, y, N)] - current[idx(x, y, N)]));
+			maxdiff = fmaxf(maxdiff, fabsf(next[idx(x, ly, N)] - current[idx(x, ly, N)]));
 		}
 	}
 	return maxdiff;

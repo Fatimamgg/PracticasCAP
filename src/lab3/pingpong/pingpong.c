@@ -13,7 +13,7 @@ void ping(int N) {
 
 	double t1 = MPI_Wtime();
 	MPI_Send(buffer_send, N, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD);
-	MPI_Recv(buffer_recv, N, MPI_DOUBLE, 1, 1, MPI_COMM_WORLD, &status);
+	MPI_Recv(buffer_recv, N, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &status);
 	double t2 = MPI_Wtime();
 	
 	for (int i=0; i<N; i++) 
@@ -32,9 +32,9 @@ void ping(int N) {
 void pong(int N) {
 	MPI_Status status;
 	double *buffer = (double*)malloc(N*sizeof(double));	
-
+	
 	MPI_Recv(buffer, N, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &status);
-	MPI_Send(buffer, N, MPI_DOUBLE, 0, 1, MPI_COMM_WORLD);
+	MPI_Send(buffer, N, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
 
 	free(buffer);
 }

@@ -30,10 +30,19 @@ void main(int argc, char* argv[])
 
 	if (world_rank==0)
 		printf("Computing approximation to pi using N = %d\n", N);
-
+	
+	double chunk=N/world_size;
 	pi_local = 0.0;
+	double inicio = world_rank * chunk;
+	double final;
+	if (world_rank == world_size - -1) {
+		final = N;
+	}
+	else{
+		final = (world_rank + 1) * chunk;
+	}
 
-	for (int i=...; i<...; i++)
+	for (int i=inicio; i<final; i++)
 	{
 		x = (i+0.5)/N;
 		f = 4.0/(1.0 + x*x);
@@ -41,7 +50,7 @@ void main(int argc, char* argv[])
 		pi_local += area;
 	}
 
-	MPI_Reduce(...);
+	MPI_Reduce(&pi_local, &pi, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
 	if (world_rank==0){
 		exactpi = 4.0*atan(1.0);
